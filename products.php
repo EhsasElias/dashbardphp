@@ -81,7 +81,7 @@ if (isset($_GET['edit'])) {
 }
 ;
 echo'
-<form method="post" action="products.php" >
+<form method="post" action="products.php" enctype="multipart/form-data">
 		<div class="input-group">
 			<label>Update Products</label>
 			<input type="hidden" name="id" value="'.$id.'">
@@ -91,8 +91,13 @@ echo'
 			<input type="text" name="name" value="'.$name.'">
 		</div>
         <div class="input-group">
+        
+    
+			<input type="hidden" name="image_hid" value="'.$image.'">
+		</div>
+        <div class="input-group">
 			<label>Image</label>
-			<input type="file" name="image[]" value="'.$image.'">
+			<input type="file" name="image" value="'.$image.'">
 		</div>
         <div class="input-group">
 			<label>Details</label>

@@ -13,11 +13,20 @@
 	}
   
     if (isset($_POST['update'])) {
+
         $id = $_POST['id'];
         $name = $_POST['name'];
-        $image = $_POST['image'];
+        // $image = $_POST['image'];
+        $image="";
         $details = $_POST['details'];
-        
+        if($_FILES['image']['size'] > 0){
+            $image = $_FILES['image']['name'];
+            print_r($_FILES);
+
+        }
+        else{
+            $image = $_POST['image_hid'];
+        }
         mysqli_query($db, "update pro set name='$name', image='$image', details='$details' where id=$id");
 
         
